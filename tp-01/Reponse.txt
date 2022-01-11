@@ -1,0 +1,37 @@
+Exercice 1 :
+
+1. Quels sont les avantages et désavantages d'un langage dit "compilé" (C, C++, Pascal) ou "semi-compilé" (Java) comparé à un langage dit "interpreté" (Python, PHP, Javascript, etc) ?
+
+Un langage compilé est plus efficace qu'un langage interpreté, il est traduit en langage machine donc il est plus simple pour le système de le lire.
+Parcontre, un programme dans un langage compilé doit être compilé pour chaque système sur lequel on veut le faire tourner, contrairement à un langage interpreté où 
+c'est l'interpréteur qui doit être compilé pour chaque système.
+
+2. Quelle est la différence entre une erreur de compilation et une erreur d'exécution ?
+(à quel moment se produisent-elles ? dans quelles circonstances ? comment les identifier ? comment les corriger ? ...)
+
+Une erreur de compilation se produit à la compilation du programme tandis qu'une erreur d'exécution se produit
+à l'exécution du programme.
+L'erreur de compilation apparaît lorsqu'on ne respecte pas sa sémantique, sa syntaxe ou sa grammaire et les erreurs d'exécution
+sont le reste comme par exemple la division par 0, problème de mémoire etc...
+Généralement pour corriger, faut essayer, c'est-à-dire compiler et voir où se trouve l'erreur et comprendre pourquoi 
+l'erreur se produit. Une fois avoir compris, on peut corriger le problème.
+
+3. Que signifie en pratique l'expression "undefined behavior" (UB) ? Peut-on compiler un programme contenant du code classifié UB par le standard ?
+Si oui, que peut-il se produire au moment de son exécution ?
+
+UB signifie que l'exécution du code a un résultat ou effet qu'on ne reconnait pas par le standard C++. Le code compile mais il est possible d'avoir des erreurs de segmentation.
+
+Exercice 2:
+
+Déclenche une erreur de compilation :
+const short s1;     On doit initialiser les const
+bool b3{i1};        Ce n'est pas possible de convertir un entier en booléen
+char c8{"a"};       On ne peut pas convertir une chaine de caractère en un seul caractère
+double& d12;        On doit initialiser sa référence
+int& i16 = b2       b2 est converti en int mais pas int&  
+
+Déclenche une erreur de compilation avec -Werror :
+Tous les variables non utilisé déclenchent une erreur (s0, b4 etc...)
+int& i15 = i1       i1 qui est un const short est converti en référence
+
+2. s0 et ul7 sont UB car us6 vaut -10 alors qu'il est un unsigned donc les valeurs seront indéfinies
